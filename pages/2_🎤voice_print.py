@@ -36,15 +36,16 @@ def displayWaveform(wav_file):  # 显示语音时域波形
 
     plt.subplot(211)
     plt.plot(time, samples)
-    plt.title("语音信号时域波形")
-    plt.xlabel("时长（秒）")
-    plt.ylabel("振幅")
+    plt.title("Waveform")
+    plt.xlabel("Time(s)")
+    plt.ylabel("Amplitude")
     # plt.savefig("your dir\语音信号时域波形图", dpi=600)
 
     plt.subplot(212)
     plt.plot(frequency[:40000], magnitude[:40000])  # magnitude spectrum
-    plt.title("语音信号频域谱线")
-    plt.xlabel("频率（赫兹）")
+    plt.title("Spectrum")
+    plt.xlabel("Frequency(HZ)")
+    plt.ylabel("Amplitude")
 
     st.pyplot(two_subplot_fig)
 
@@ -60,9 +61,9 @@ def displaySpectrogram(file_to_Spectrogram_plot):
     spectrogram_figure = plt.figure(figsize=(10, 6), layout='constrained')
     librosa.display.specshow(spectrogram, y_axis='log')
     plt.colorbar(format='%+2.0f dB')
-    plt.title('语音信号对数谱图')
-    plt.xlabel('时长（秒）')
-    plt.ylabel('频率（赫兹）')
+    plt.title('Spectrogram')
+    plt.xlabel('Time(s)')
+    plt.ylabel('Frequency(HZ)')
     st.pyplot(spectrogram_figure)
 
 
