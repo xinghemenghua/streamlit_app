@@ -11,9 +11,11 @@ from pydub import AudioSegment
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(
-    page_title="🎤voice_print",
+    page_title="voice_print",
     page_icon="🎤",
 )
+matplotlib.rc("font", family='SimHei')  # 显示中文
+matplotlib.rcParams['axes.unicode_minus'] = False  # 显示符号
 
 def displayWaveform(wav_file):  # 显示语音时域波形
     plt.figure(dpi=600)  # 将显示的所有图分辨率调高
