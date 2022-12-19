@@ -32,22 +32,6 @@ def get_web_now_time(time_format='YYYY-MM-DD HH:mm'):
     return web_now_time
 
 
-def english_word():
-    url = 'http://dict.eudic.net/home/dailysentence'
-    req = urllib.request.Request(url)
-    html = urlopen(req).read()
-    # 解析网页数据
-    html = etree.HTML(html)
-    # 获取想要的内容
-    result = html.xpath('.//div[@id="senten_move"]/p/text()')
-    # 英文句子
-    english = result[0]
-    # 翻译
-    chinese = result[1]
-    return english, chinese
-
-
-english_day, chinese_day = english_word()
 
 
 def meiriyiwen():
@@ -75,8 +59,6 @@ st.markdown("""![今日诗词](https://v2.jinrishici.com/one.svg?font-size=40&sp
 
 st.header(get_web_now_time())
 
-st.write(english_day)
-st.write(chinese_day)
 music_name, music_url, music_pic = music_get()
 st.image(music_pic, caption=music_name, width=300, use_column_width='True')
 st.audio(music_url)
